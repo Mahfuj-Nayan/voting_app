@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<h2>Welcome, {{ session.username }}</h2>
+<h3 class="mt-4">Cast Your Vote</h3>
+<p>You can vote for one of the following candidates:</p>
+
+<div class="row">
+  {% for candidate in candidates %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ candidate.name }}</h5>
+        <p class="card-text">{{ candidate.description }}</p>
+        <form
+          method="POST"
+          action="{{ url_for('vote', candidate_id=candidate.id) }}"
+        >
+          <button type="submit" class="btn btn-primary">
+            Vote for {{ candidate.name }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<a href="{{ url_for('results') }}" class="btn btn-info">View Results</a>
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+{% endblock %}

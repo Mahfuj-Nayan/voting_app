@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+<h2>Voting Results</h2>
+<p>Total votes cast: {{ total }}</p>
+
+<table class="table table-striped mt-4">
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Description</th>
+      <th>Votes</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for result in results %}
+    <tr>
+      <td>{{ result.name }}</td>
+      <td>{{ result.description }}</td>
+      <td>{{ result.vote_count }}</td>
+      <td>
+        {% if total > 0 %} {{ (result.vote_count / total * 100) | round(1) }}%
+        {% else %} 0% {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-primary"
+  >Back to Dashboard</a
+>
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+{% endblock %}

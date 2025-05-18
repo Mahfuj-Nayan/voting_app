@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+<h2>Welcome, {{ session.username }}</h2>
+<div class="alert alert-success mt-4">
+  <h4>You have already voted!</h4>
+  <p>You voted for: <strong>{{ vote.name }}</strong></p>
+  <p>{{ vote.description }}</p>
+</div>
+
+<a href="{{ url_for('results') }}" class="btn btn-info">View Results</a>
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+{% endblock %}
