@@ -2,7 +2,18 @@
 <h2>Register</h2>
 <form method="POST">
   <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
+    <label for="userid" class="form-label">User ID*</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userid"
+      name="userid"
+      required
+    />
+    <small class="text-muted">This will be your login ID</small>
+  </div>
+  <div class="mb-3">
+    <label for="username" class="form-label">Full Name*</label>
     <input
       type="text"
       class="form-control"
@@ -12,11 +23,11 @@
     />
   </div>
   <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" name="email" required />
+    <label for="email" class="form-label">Email (optional)</label>
+    <input type="email" class="form-control" id="email" name="email" />
   </div>
   <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
+    <label for="password" class="form-label">Password*</label>
     <input
       type="password"
       class="form-control"
@@ -26,7 +37,7 @@
     />
   </div>
   <div class="mb-3">
-    <label for="confirm_password" class="form-label">Confirm Password</label>
+    <label for="confirm_password" class="form-label">Confirm Password*</label>
     <input
       type="password"
       class="form-control"
